@@ -17551,23 +17551,6 @@ screen and (-ms-high-contrast:active) {
     }
 }
 
-.settings-toggle {
-    background: #fff;
-    border-bottom-left-radius: .2rem;
-    border-top-left-radius: .2rem;
-    box-shadow: -5px 0 10px 0 rgba(0, 0, 0, .1);
-    color: #000;
-    cursor: pointer;
-    height: 166px;
-    padding: .5rem;
-    position: fixed;
-    right: 0;
-    top: 200px;
-    transition: all .1s ease-in-out;
-    width: 54px;
-    z-index: 10
-}
-
 body[data-theme=dark] .settings-toggle {
     background: #f4f7f9
 }
