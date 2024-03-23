@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FaqComponent } from '../../pages/adm/faq/faq.component';
+
+// components
+import { UsersIndexComponent } from '../../../components/crud/users/users-index/users-index.component';
 
 const routes: Routes = [
-  { path: '', component: FaqComponent },
+  { path: '', component: UsersIndexComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class FaqRoutingModule { }
+export class UsersRoutingModule { }

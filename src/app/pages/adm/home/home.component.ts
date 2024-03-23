@@ -14,8 +14,7 @@ export class HomeComponent {
   ) {}
 
   async alert() {
-    let resultConfirm = await this.messageService.confirm(
-      "Atenção",
+    let resultConfirm = await this.messageService.confirm(     
       "What is Lorem Ipsum?"
     );
 

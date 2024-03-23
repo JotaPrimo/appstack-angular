@@ -6,11 +6,12 @@ import { RouterOutlet } from '@angular/router';
 import { NavSidebarComponent } from './components/layout/nav-sidebar/nav-sidebar.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { NavSuperiorComponent } from './components/layout/nav-superior/nav-superior.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, NavSidebarComponent, NavSuperiorComponent, FooterComponent],
+  imports: [CommonModule, RouterOutlet, NavSidebarComponent, NavSuperiorComponent, FooterComponent, HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

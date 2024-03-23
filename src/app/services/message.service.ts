@@ -22,9 +22,9 @@ export class MessageService {
     });
   }
 
-  async confirm(title: string, text: string) {
+  async confirm(text: string) {
     return await Swal.fire({
-      title: title,
+      title: "Atenção",
       text: text,
       icon: 'warning',
       showCancelButton: true,
@@ -54,6 +54,14 @@ export class MessageService {
       icon: 'info',
       title: text,
     });
+  }
+
+  operacaoCancelada() {
+    this.info("Operação cancelada com sucesso");
+  }
+
+  ocorreuUmerro() {
+    this.error("Ocorreu um erro");
   }
 
 }
