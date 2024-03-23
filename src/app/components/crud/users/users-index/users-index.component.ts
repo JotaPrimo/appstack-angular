@@ -4,13 +4,14 @@ import { UserService } from '../../../../services/user.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { MessageService } from '../../../../services/message.service';
+import { MoreActionsComponent } from '../../../layout/shared/icons/more-actions/more-actions.component';
 
 
 
 @Component({
   selector: 'users-index',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, MoreActionsComponent],
   templateUrl: './users-index.component.html',
   styleUrl: './users-index.component.css',
 })
