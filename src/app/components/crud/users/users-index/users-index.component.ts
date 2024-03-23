@@ -25,29 +25,41 @@ export class UsersIndexComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe((data: User[]) => {
-      this.users = data;
-      console.log(this.users);
-    });
+    this.getAllUsers();
   }
 
   alert() {
     this.messageService.confirm("Tem certeza ?");
   }
 
+  getAllUsers() {
+    this.userService.getUsers().subscribe((data: User[]) => {
+      this.users = data;
+      console.log(this.users);
+    });
+  }
+
   async deletar(user: User) {
+    console.log('sdasdasdasd');
+    
     try {
       let confirmDelete = await this.messageService.confirm("Deletar usuário " +user.name+ " ?");
 
-      if(confirmDelete.isConfirmed) {
-        this.messageService.success(user.name + " foi deletado com sucesso");
+      if (confirmDelete.isConfirmed) {
+        this.userService
+          .delete(user.id)
+          .subscribe((res) => {
+            this.users = this.users?.filter((item) => item.id !== user.id);
+            this.messageService.success('Registro deletado com sucesso');
+          });
+      
         return;
       }
       
       this.messageService.operacaoCancelada();
       return;
 
-    } catch (error) {
+    } catch (error) {           
       this.messageService.ocorreuUmerro();
     }
   }

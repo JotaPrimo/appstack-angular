@@ -2,13 +2,16 @@ import { Injectable } from '@angular/core';
 import { User } from '../interfaces/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ApiPath } from '../config/api-path';
-import { Observable, catchError } from 'rxjs';
+import { Observable, catchError, switchMap, throwError } from 'rxjs';
 import { MessageService } from './message.service';
+import { httpOptions } from '../config/http-options';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
+  private userDelete: User | any;
 
   constructor(
     private messageService: MessageService,
@@ -26,6 +29,12 @@ export class UserService {
       .get<User>(ApiPath.USERS + '/' + idUser)
       .pipe(catchError(this.errorHandler));
   } 
+
+  delete(id: number) {
+    return this.httpClient
+      .delete<User>(ApiPath.USERS + '/' + id, httpOptions)
+      .pipe(catchError(this.errorHandler));
+  }
  
 
   errorHandler(error: any): Observable<never> {
