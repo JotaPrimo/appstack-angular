@@ -70,8 +70,7 @@ export class UsersIndexComponent implements OnInit {
       this.userService.getUser(idUser).subscribe((data: User) => {
         this.userShow = data;
         console.log("aqui");
-        console.log(this.userShow);
-        
+        console.log(this.userShow);       
         
       });
     } catch (error) {

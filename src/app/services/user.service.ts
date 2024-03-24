@@ -25,6 +25,8 @@ export class UserService {
   } 
 
   getUser(idUser: number): Observable<User> {
+    console.log(idUser);
+    
     return this.httpClient
       .get<User>(ApiPath.USERS + '/' + idUser)
       .pipe(catchError(this.errorHandler));
