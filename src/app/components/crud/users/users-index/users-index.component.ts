@@ -12,6 +12,7 @@ import { LockIconComponent } from '../../../layout/shared/icons/lock-icon/lock-i
 import { EyeIconComponent } from '../../../layout/shared/icons/eye-icon/eye-icon.component';
 import { DeleteIconComponent } from '../../../layout/shared/icons/delete-icon/delete-icon.component';
 import { EditIconComponent } from '../../../layout/shared/icons/edit-icon/edit-icon.component';
+import { ListIconComponent } from '../../../layout/shared/icons/list-icon/list-icon.component';
 
 @Component({
   selector: 'users-index',
@@ -22,7 +23,8 @@ import { EditIconComponent } from '../../../layout/shared/icons/edit-icon/edit-i
     MoreActionsComponent,
     UsersSearchComponent,
     UserFiltroPipe,
-    UnlockIconComponent, LockIconComponent, EyeIconComponent, DeleteIconComponent, EditIconComponent
+    UnlockIconComponent, LockIconComponent, EyeIconComponent, DeleteIconComponent, EditIconComponent,
+    ListIconComponent
   ],
   templateUrl: './users-index.component.html',
   styleUrl: './users-index.component.css',

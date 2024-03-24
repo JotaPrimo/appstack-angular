@@ -9,4 +9,8 @@ export const routes: Routes = [
         path: 'users',
         loadChildren: () => import('./modules/crud/users/users-routing.module').then(m => m.UsersRoutingModule)
     },
+    {
+        path: 'todos',
+        loadChildren: () => import('./modules/crud/todos/todos-routing.module').then(m => m.TodosRoutingModule)
+    },
 ];
