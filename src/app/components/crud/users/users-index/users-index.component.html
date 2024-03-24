@@ -48,7 +48,7 @@
                                 </thead>
                                 <tbody>
                                     @for (user of users; track $index) {
-                                    <tr>
+                                    <tr style="cursor: pointer;" (click)="showUser(user.id)">
                                         <td class="dtr-control">
                                             <img src="img/avatars/avatar-3.jpg" width="32" height="32"
                                                 class="rounded-circle my-n1" alt="Avatar">
@@ -68,8 +68,7 @@
                                         </td>
                                         <td class="">
                                             <div class="d-flex gap-1">
-                                                <button class="btn btn-sm btn-info"
-                                                    (click)="showUser(user.id)">Ver</button>
+                                                <button class="btn btn-sm btn-info">Ver</button>
                                                 <a [routerLink]="['/users/edit', user.id]" class="btn btn-sm btn-warning">Editar</a>
                                                 <button (click)="deletar(user)" class="btn btn-sm btn-danger">Deletar</button>
                                             </div>
