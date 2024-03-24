@@ -47,7 +47,7 @@
                 <div class="mb-3 row">
                     <label for="cpf" class="col-form-label col-sm-2 text-sm-right">CPF</label>
                     <div class="col-sm-10">
-                        <input type="text" [(ngModel)]="user && user.cpf" formControlName="cpf" class="form-control" id="cpf" name="cpf" placeholder="CPF">
+                        <input type="text" mask="000.000.000-00" [(ngModel)]="user && user.cpf" formControlName="cpf" class="form-control" id="cpf" name="cpf" placeholder="CPF">
                         <div class="text-danger"
                         *ngIf="userEditForm.controls['cpf'].invalid && (userEditForm.controls['cpf'].touched || userEditForm.controls['cpf'].dirty)">
                         <span *ngIf="userEditForm.controls['cpf'].errors?.['required']">Este campo é obrigatório</span>

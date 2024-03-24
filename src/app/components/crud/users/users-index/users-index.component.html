@@ -21,6 +21,7 @@
                 </div>
             </div>
             <div class="card-body">
+                <users-search (searchEvent)="search($event)" />
                 <div id="datatables-clients_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
                     <div class="row dt-row">
                         <div class="col-sm-12">
@@ -47,7 +48,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @for (user of users; track $index) {
+                                    @for (user of users | userFiltro : userSearch ; track $index) {
                                     <tr style="cursor: pointer;" (click)="showUser(user.id)">
                                         <td class="dtr-control">
                                             <img src="img/avatars/avatar-3.jpg" width="32" height="32"
@@ -68,9 +69,18 @@
                                         </td>
                                         <td class="">
                                             <div class="d-flex gap-1">
-                                                <button class="btn btn-sm btn-info">Ver</button>
-                                                <a [routerLink]="['/users/edit', user.id]" class="btn btn-sm btn-warning">Editar</a>
-                                                <button (click)="deletar(user)" class="btn btn-sm btn-danger">Deletar</button>
+                                                <button title="Ativar usuário" id="btnAtivar" *ngIf="!user.ativo" (click)="ativar(user)" class="btn btn-sm btn-secondary">
+                                                    <app-unlock-icon />
+                                                </button>
+                                                <button class="btn btn-sm btn-info" title="Ver usuário">
+                                                    <app-eye-icon />
+                                                </button>
+                                                <a [routerLink]="['/users/edit', user.id]" title="Editar" class="btn btn-sm btn-warning">
+                                                    <app-edit-icon />
+                                                </a>
+                                                <button (click)="deletar(user)" class="btn btn-sm btn-danger" title="Deletar">
+                                                    <app-delete-icon />
+                                                </button>
                                             </div>
                                         </td>
                                     </tr>

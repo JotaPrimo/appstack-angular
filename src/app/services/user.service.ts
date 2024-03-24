@@ -39,8 +39,18 @@ export class UserService {
   }
 
   update(id: number, user: User): Observable<User> {
+    console.log("update");
+    
+    console.log(id, user);
+    
     return this.httpClient
       .put<User>(ApiPath.USERS + '/' + id, JSON.stringify(user), httpOptions)
+      .pipe(catchError(this.errorHandler));
+  }
+
+  ativarUser(idUser: number): Observable<void> {
+    return this.httpClient
+      .patch<void>(ApiPath.USERS + '/' + idUser, httpOptions)
       .pipe(catchError(this.errorHandler));
   }
 

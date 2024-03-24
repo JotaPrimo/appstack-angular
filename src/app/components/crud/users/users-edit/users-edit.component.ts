@@ -5,11 +5,12 @@ import { UserService } from '../../../../services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from '../../../../services/message.service';
 import { CommonModule } from '@angular/common';
+import { NgxMaskDirective } from 'ngx-mask';
 
 @Component({
   selector: 'app-users-edit',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, CommonModule],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule, NgxMaskDirective],
   templateUrl: './users-edit.component.html',
   styleUrl: './users-edit.component.css'
 })
@@ -36,7 +37,7 @@ export class UsersEditComponent implements OnInit {
       ]),
       cpf: new FormControl('', [
         Validators.required,
-        Validators.minLength(14),
+        Validators.minLength(11),
         Validators.maxLength(14),
       ]),
       email: new FormControl('', [
@@ -63,7 +64,7 @@ export class UsersEditComponent implements OnInit {
     this.userService
       .update(this.id, this.userEditForm.value)
       .subscribe((res) => {
-        this.messageService.info('Operação cancelada');
+        this.messageService.success('Dados atualizados com sucesso');
         this.router.navigateByUrl('/users');
       });
   }

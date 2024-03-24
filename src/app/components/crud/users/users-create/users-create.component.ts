@@ -7,12 +7,13 @@ import { CommonModule } from '@angular/common';
 import { CardBodyComponent } from '../../../layout/shared/card/card-body/card-body.component';
 import { CardHeaderComponent } from '../../../layout/shared/card/card-header/card-header.component';
 import { CardFooterComponent } from '../../../layout/shared/card/card-footer/card-footer.component';
+import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 
 @Component({
   selector: 'app-users-create',
   standalone: true,
   imports: [ 
-    ReactiveFormsModule, CommonModule,
+    ReactiveFormsModule, CommonModule, NgxMaskDirective, NgxMaskPipe,
     CardBodyComponent, CardHeaderComponent, CardFooterComponent
   ],
   templateUrl: './users-create.component.html',
@@ -34,7 +35,7 @@ export class UsersCreateComponent {
       ]),
       cpf: new FormControl('', [
         Validators.required,
-        Validators.minLength(14),
+        Validators.minLength(11),
         Validators.maxLength(14),
       ]),
       email: new FormControl('', [
