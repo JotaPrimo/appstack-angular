@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-list-icon',
@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './list-icon.component.html',
 })
 export class ListIconComponent {
-  width: number = 24;
-  height: number = 24;
+  @Input() width: number = 24;  
+  @Input() height: number = 24;
 }
