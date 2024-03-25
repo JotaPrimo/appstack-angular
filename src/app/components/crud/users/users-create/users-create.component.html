@@ -1,1 +1,74 @@
-<p>users-create works!</p>
+<div class="col-12 col-xl-6">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Criar Novo Usuário</h5>
+            <h6 class="card-subtitle text-muted">Preencha todos os dados corretamente</h6>
+        </div>
+        <div class="card-body">
+            <form class="needs-validation" [formGroup]="userForm">
+                <div class="mb-3 row">
+                    <label for="nome" class="col-form-label col-sm-2 text-sm-right">Nome</label>
+                    <div class="col-sm-10">
+                        <input type="text" formControlName="name" class="form-control" id="nome" placeholder="Nome">
+                        <div class="text-danger"
+                            *ngIf="userForm.controls['name'].invalid && (userForm.controls['name'].touched || userForm.controls['name'].dirty)">
+                            <span *ngIf="userForm.controls['name'].errors?.['required']">Este campo é obrigatório</span>
+                            <span *ngIf="userForm.controls['name'].errors?.['minlength']">Deve ter ao menos 5
+                                caracteres</span>
+                            <span *ngIf="userForm.controls['name'].errors?.['maxlength']">Deve ter no máximo 50
+                                caracteres</span>
+                        </div>
+                        <div class="text-success"
+                            *ngIf="userForm.controls['name'].valid && (userForm.controls['name'].touched || userForm.controls['name'].dirty)">
+                            Muito bem!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-form-label col-sm-2 text-sm-right">Email</label>
+                    <div class="col-sm-10">
+                        <input type="email" formControlName="email" class="form-control" placeholder="Email">
+                        <div class="text-danger"
+                        *ngIf="userForm.controls['email'].invalid && (userForm.controls['email'].touched || userForm.controls['email'].dirty)">
+                        <span *ngIf="userForm.controls['email'].errors?.['required']">Este campo é obrigatório</span>
+                        <span *ngIf="userForm.controls['email'].errors?.['minlength']">Deve ter ao menos 5
+                            caracteres</span>
+                        <span *ngIf="userForm.controls['email'].errors?.['maxlength']">Deve ter no máximo 50
+                            caracteres</span>
+                    </div>
+                    <div class="text-success"
+                        *ngIf="userForm.controls['email'].valid && (userForm.controls['email'].touched || userForm.controls['email'].dirty)">
+                        Muito bem!
+                    </div>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label for="cpf" class="col-form-label col-sm-2 text-sm-right">CPF</label>
+                    <div class="col-sm-10">
+                        <input type="text" mask="000.000.000-00" formControlName="cpf" class="form-control" id="cpf" name="cpf" placeholder="CPF">
+                        <div class="text-danger"
+                        *ngIf="userForm.controls['cpf'].invalid && (userForm.controls['cpf'].touched || userForm.controls['cpf'].dirty)">
+                        <span *ngIf="userForm.controls['cpf'].errors?.['required']">Este campo é obrigatório</span>
+                        <span *ngIf="userForm.controls['cpf'].errors?.['minlength']">Deve ter ao menos 14
+                            caracteres</span>
+                        <span *ngIf="userForm.controls['cpf'].errors?.['maxlength']">Deve ter no máximo 14
+                            caracteres</span>
+                    </div>
+                    <div class="text-success"
+                        *ngIf="userForm.controls['cpf'].valid && (userForm.controls['cpf'].touched || userForm.controls['cpf'].dirty)">
+                        Muito bem!
+                    </div>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <div class="col-sm-10 ml-sm-auto">
+                        <button type="submit" (click)="store()" id="btnSalvarUser" class="btn btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

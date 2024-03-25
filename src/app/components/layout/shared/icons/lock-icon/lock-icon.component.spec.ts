@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UsersCreateComponent } from './users-create.component';
+import { LockIconComponent } from './lock-icon.component';
 
-describe('UsersCreateComponent', () => {
-  let component: UsersCreateComponent;
-  let fixture: ComponentFixture<UsersCreateComponent>;
+describe('LockIconComponent', () => {
+  let component: LockIconComponent;
+  let fixture: ComponentFixture<LockIconComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UsersCreateComponent]
+      imports: [LockIconComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(UsersCreateComponent);
+    fixture = TestBed.createComponent(LockIconComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

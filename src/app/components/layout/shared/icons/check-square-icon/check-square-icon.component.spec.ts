@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UsersEditComponent } from './users-edit.component';
+import { CheckSquareIconComponent } from './check-square-icon.component';
 
-describe('UsersEditComponent', () => {
-  let component: UsersEditComponent;
-  let fixture: ComponentFixture<UsersEditComponent>;
+describe('CheckSquareIconComponent', () => {
+  let component: CheckSquareIconComponent;
+  let fixture: ComponentFixture<CheckSquareIconComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UsersEditComponent]
+      imports: [CheckSquareIconComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(UsersEditComponent);
+    fixture = TestBed.createComponent(CheckSquareIconComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

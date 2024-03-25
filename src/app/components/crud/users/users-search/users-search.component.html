@@ -1,0 +1,29 @@
+<div class="col-md-12">
+    <form>
+        <div class="row">
+            <div class="mb-3 col-md-4 col-sm-12">    
+                <label for="name">Nome</label>           
+                <input type="name" [(ngModel)]="userSearch.name" class="form-control" name="name" id="name" placeholder="Name">
+            </div>            
+            <div class="mb-3 col-md-3">    
+                <label for="cpf">CPF</label>            
+                <input type="text" class="form-control" [(ngModel)]="userSearch.cpf" name="cpf" id="cpf" placeholder="CPF">
+            </div>
+            <div class="mb-3 col-md-3">   
+                <label for="email">E-mail</label>             
+                <input type="text" class="form-control" [(ngModel)]="userSearch.email" name="email" id="email" placeholder="E-mail">
+            </div>
+            <div class="mb-3 col-md-2">
+               <div class="d-flex gap-1">
+                <button type="button" title="Limpar filtros" (click)="search()" class="btn btn-sm btn-info mt-4">
+                    <refresh-icon />
+                </button>
+                <button title="Buscar" type="button" (click)="search()" class="btn btn-sm btn-primary mt-4">
+                    <search-icon />
+                </button>
+               </div>
+            </div>
+        </div>       
+        
+    </form>
+</div>

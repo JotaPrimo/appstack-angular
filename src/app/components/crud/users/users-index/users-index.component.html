@@ -9,17 +9,11 @@
                 <div class="card-actions float-end">
                     <div class="dropdown position-relative">
                         <a href="#" data-bs-toggle="dropdown" data-bs-display="static">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-more-horizontal align-middle">
-                                <circle cx="12" cy="12" r="1"></circle>
-                                <circle cx="19" cy="12" r="1"></circle>
-                                <circle cx="5" cy="12" r="1"></circle>
-                            </svg>
+                           <more-actions />
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end">
-                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" [routerLink]="['/users/create']" routerLinkActive="router-link-active" >Novo Usuário</a>
                             <a class="dropdown-item" href="#">Another action</a>
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
@@ -27,6 +21,7 @@
                 </div>
             </div>
             <div class="card-body">
+                <users-search (searchEvent)="search($event)" />
                 <div id="datatables-clients_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
                     <div class="row dt-row">
                         <div class="col-sm-12">
@@ -53,8 +48,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @for (user of users; track $index) {
-                                    <tr>
+                                    @for (user of users | userFiltro : userSearch ; track $index) {
+                                    <tr style="cursor: pointer;" (click)="showUser(user.id)">
                                         <td class="dtr-control">
                                             <img src="img/avatars/avatar-3.jpg" width="32" height="32"
                                                 class="rounded-circle my-n1" alt="Avatar">
@@ -74,10 +69,18 @@
                                         </td>
                                         <td class="">
                                             <div class="d-flex gap-1">
-                                                <button class="btn btn-sm btn-info"
-                                                    (click)="showUser(user.id)">Ver</button>
-                                                <button class="btn btn-sm btn-warning">Editar</button>
-                                                <button (click)="deletar(user)" class="btn btn-sm btn-danger">Deletar</button>
+                                                <button title="Ativar usuário" id="btnAtivar" *ngIf="!user.ativo" (click)="ativar(user)" class="btn btn-sm btn-secondary">
+                                                    <app-unlock-icon />
+                                                </button>
+                                                <button class="btn btn-sm btn-info" title="Ver usuário">
+                                                    <app-eye-icon />
+                                                </button>
+                                                <a [routerLink]="['/users/edit', user.id]" title="Editar" class="btn btn-sm btn-warning">
+                                                    <app-edit-icon />
+                                                </a>
+                                                <button (click)="deletar(user)" class="btn btn-sm btn-danger" title="Deletar">
+                                                    <app-delete-icon />
+                                                </button>
                                             </div>
                                         </td>
                                     </tr>
@@ -118,17 +121,10 @@
                 <div class="card-actions float-end">
                     <div class="dropdown position-relative">
                         <a href="#" data-bs-toggle="dropdown" data-bs-display="static">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-more-horizontal align-middle">
-                                <circle cx="12" cy="12" r="1"></circle>
-                                <circle cx="19" cy="12" r="1"></circle>
-                                <circle cx="5" cy="12" r="1"></circle>
-                            </svg>
+                            <more-actions />
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-end">
-                            <a class="dropdown-item" href="#">Action</a>
+                        <div class="dropdown-menu dropdown-menu-end">                           
                             <a class="dropdown-item" href="#">Another action</a>
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
