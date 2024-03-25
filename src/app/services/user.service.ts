@@ -38,11 +38,7 @@ export class UserService {
       .pipe(catchError(this.errorHandler));
   }
 
-  update(id: number, user: User): Observable<User> {
-    console.log("update");
-    
-    console.log(id, user);
-    
+  update(id: number, user: User): Observable<User> {   
     return this.httpClient
       .put<User>(ApiPath.USERS + '/' + id, JSON.stringify(user), httpOptions)
       .pipe(catchError(this.errorHandler));
