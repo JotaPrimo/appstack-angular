@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
 // components
-import { NavSidebarComponent } from './components/layout/nav-sidebar/nav-sidebar.component';
-import { FooterComponent } from './components/layout/footer/footer.component';
-import { NavSuperiorComponent } from './components/layout/nav-superior/nav-superior.component';
+import { NavSidebarComponent } from './shared/components/layout/nav-sidebar/nav-sidebar.component';
+import { FooterComponent } from './shared/components/layout/footer/footer.component';
+import { NavSuperiorComponent } from './shared/components/layout/nav-superior/nav-superior.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @Component({
