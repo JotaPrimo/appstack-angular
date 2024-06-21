@@ -3,10 +3,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'auth-login',
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
+  templateUrl: './auth-layout.component.html',
+  styleUrl: './auth-layout.component.css',
 })
-export class LoginComponent {
+export class AuthLayoutComponent {
 
   public handleLogin(event: Event): void {
     console.log('handleLogin');
