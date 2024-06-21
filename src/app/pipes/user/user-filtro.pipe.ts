@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { User } from '../../interfaces/user';
+import { User } from '@app/usuarios/interfaces/user';
 
 @Pipe({
   name: 'userFiltro',
@@ -20,5 +20,5 @@ export class UserFiltroPipe implements PipeTransform {
         (!search.email || user.email.toLocaleLowerCase().includes(search.email.toLocaleLowerCase()))
     );
   }
-  
+
 }

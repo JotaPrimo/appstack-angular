@@ -1,4 +1,4 @@
-import { MessageService } from './../../../services/message.service';
+import { MessageService } from '../../../shared/services/message.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -14,7 +14,7 @@ export class HomeComponent {
   ) {}
 
   async alert() {
-    let resultConfirm = await this.messageService.confirm(     
+    let resultConfirm = await this.messageService.confirm(
       "What is Lorem Ipsum?"
     );
 
