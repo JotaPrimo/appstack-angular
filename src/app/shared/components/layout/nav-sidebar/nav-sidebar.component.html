@@ -28,6 +28,12 @@
                   Pages
                 </li>
                 <li class="sidebar-item">
+                  <a class="sidebar-link" [routerLink]="['/auth/login']" routerLinkActive="router-link-active" >
+                   <app-list-icon [height]="24" [width]="24" />
+                    <span class="align-middle">Login</span>
+                  </a>
+                </li>
+                <li class="sidebar-item">
                   <a class="sidebar-link" [routerLink]="['/home']" routerLinkActive="router-link-active" >
                    <app-list-icon [height]="24" [width]="24" />
                     <span class="align-middle">Home</span>

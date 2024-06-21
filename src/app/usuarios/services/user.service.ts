@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../interfaces/user';
 import { HttpClient } from '@angular/common/http';
-import { ApiPath } from '../../config/api-path';
+import { apiPath } from '../../config/api-path';
 import { Observable, catchError, switchMap, throwError } from 'rxjs';
 import { MessageService } from '../../shared/services/message.service';
 import { httpOptions } from '../../config/http-options';
@@ -20,7 +20,7 @@ export class UserService {
 
   getUsers(): Observable<User[]> {
     return this.httpClient
-      .get<User[]>(ApiPath.USERS)
+      .get<User[]>(apiPath.USERS)
       .pipe(catchError(this.errorHandler));
   }
 
@@ -28,31 +28,31 @@ export class UserService {
     console.log(idUser);
 
     return this.httpClient
-      .get<User>(ApiPath.USERS + '/' + idUser)
+      .get<User>(apiPath.USERS + '/' + idUser)
       .pipe(catchError(this.errorHandler));
   }
 
   store(user: User): Observable<User> {
     return this.httpClient
-      .post<User>(ApiPath.USERS, JSON.stringify(user), httpOptions)
+      .post<User>(apiPath.USERS, JSON.stringify(user), httpOptions)
       .pipe(catchError(this.errorHandler));
   }
 
   update(id: number, user: User): Observable<User> {
     return this.httpClient
-      .put<User>(ApiPath.USERS + '/' + id, JSON.stringify(user), httpOptions)
+      .put<User>(apiPath.USERS + '/' + id, JSON.stringify(user), httpOptions)
       .pipe(catchError(this.errorHandler));
   }
 
   ativarUser(idUser: number): Observable<void> {
     return this.httpClient
-      .patch<void>(ApiPath.USERS + '/' + idUser, httpOptions)
+      .patch<void>(apiPath.USERS + '/' + idUser, httpOptions)
       .pipe(catchError(this.errorHandler));
   }
 
   delete(id: number) {
     return this.httpClient
-      .delete<User>(ApiPath.USERS + '/' + id, httpOptions)
+      .delete<User>(apiPath.USERS + '/' + id, httpOptions)
       .pipe(catchError(this.errorHandler));
   }
 
